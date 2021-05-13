@@ -1,0 +1,90 @@
+version: '2.0'
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - inform
+  - search_provider
+  - list_docker_images
+  - open_docker_cli
+  - container_index
+
+entities:
+  - containerization_app_command
+  - containerization_app_feature
+  - containerization_app
+  - containerization_app_prompt
+  - container_idx
+  - container_name
+
+
+responses:
+  utter_greet:
+    - text: Hey! How are you?
+  utter_cheer_up:
+    - text: 'Here is something to cheer you up:'
+      image: 'https://i.imgur.com/nGF1K8f.jpg'
+  utter_did_that_help:
+    - text: Did that help you?
+  utter_happy:
+    - text: 'Great, carry on!'
+  utter_goodbye:
+    - text: Bye
+  utter_iamabot:
+    - text: 'I am a bot, powered by Rasa.'
+  utter_help:
+    - text: Are you alright?
+  utter_search_healthcare:
+    - text: let me find you a hospital in that location
+  utter_ask_launch_cli_or_webpage_form_containerization_app_command:
+    - text: Please tell the action you want to perform with docker?
+  utter_ask_launch_cli_or_webpage_form_containerization_app_prompt:
+    - text: do you want to open cli or web page for a container?
+  utter_submit:
+    - text: Ok. Thanks!
+  utter_slots_values:
+  - text: you request is to {containerization_app_command} {containerization_app_prompt} {container_name} for docker!
+
+
+actions:
+  - docker_images_list
+  - action_ask_launch_cli_or_webpage_form_container_name
+  - action_reset_slots
+  - action_form_submit
+  - validate_launch_cli_or_webpage_form
+
+
+slots:
+  containerization_app_command:
+    type: text
+#    auto_fill: False
+  containerization_app_prompt:
+    type: text
+#    auto_fill: False
+  container_name:
+    type: text
+#    auto_fill: False
+
+
+forms:
+  launch_cli_or_webpage_form:
+    required_slots: 
+        containerization_app_command:
+          - type: from_entity
+            entity: containerization_app_command
+        containerization_app_prompt:
+          - type: from_entity
+            entity: containerization_app_prompt
+        container_name:
+          - type: from_entity
+            entity: container_name
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

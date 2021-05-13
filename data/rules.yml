@@ -1,0 +1,50 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate cli or webpage form
+  steps:
+  - intent: open_docker_cli
+  - action: launch_cli_or_webpage_form
+  - active_loop: launch_cli_or_webpage_form
+
+- rule: deactivate cli or webpage form
+  condition:
+  - active_loop: launch_cli_or_webpage_form
+  steps:
+  - action: launch_cli_or_webpage_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slots_values
+  - action: action_form_submit
+  - action: action_reset_slots
+
+
+# - rule: Activate form
+#   steps:
+#   - intent: request_restaurant
+#   - action: restaurant_form
+#   - active_loop: restaurant_form
+
+
+# - rule: Submit form
+#   condition:
+#   - active_loop: restaurant_form
+#   steps:
+#   - action: restaurant_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_submit
+#   - action: utter_slots_values
