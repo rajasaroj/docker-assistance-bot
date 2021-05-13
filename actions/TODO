@@ -4,17 +4,17 @@
 
 2)  override the utter_submit (domain.yml) file with custom action and reset all the values of slot (Done)
 
-3) take input and do: 
+3) take input and do: (Done)
         - start given terminal (done)
         - open web page (done)
         - restart (schedule last)
 
-4) create training data for rest of the open-cli-intent
-5) train the model
-6) plug it with speech api test 
+4) create training data for rest of the open-cli-intent (done)
+5) train the model (done)
+6) plug it with speech api test (won't do) 
         - cli
         - webpage
 
-7) Add restart functionality
+7) Add restart functionality 
 8) add authenticate with aws
 9) pull images for ecr

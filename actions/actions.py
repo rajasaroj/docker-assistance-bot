@@ -133,7 +133,12 @@ class ValidateLaunchCliAndWebPageForm(FormValidationAction):
 
     def validate_containerization_app_prompt(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict):
         print(slot_value)
-        slot_value = slot_value.strip()
+
+        if type(slot_value) == list:
+            slot_value = slot_value[0].strip()
+        else:
+            slot_value = slot_value.strip()
+
         print(slot_value)
         if slot_value.isalpha():
             print("-" + slot_value)
@@ -143,11 +148,14 @@ class ValidateLaunchCliAndWebPageForm(FormValidationAction):
             return {"containerization_app_prompt": None}
 
     def validate_container_name(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict):
-        print(slot_value)
+        print("before strip" + slot_value)
         slot_value = slot_value.strip()
-        if slot_value.isalpha():
+        print("after strip" + slot_value)
+
+        if slot_value != "":
             print("-" + slot_value)
             return {"container_name": slot_value}
         else:
             print(slot_value)
             return {"container_name": None}
+        

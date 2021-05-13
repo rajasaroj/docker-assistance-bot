@@ -34,8 +34,10 @@ class DockerHelper:
         return CommandLineInterfaceHandler.run_command_same_terminal(cmd)
 
     
-
-
+    def pull_docker_images(self, image_url):
+        command = f"docker pull {image_url}"
+        print(command)
+        CommandLineInterfaceHandler.launch_terminal_with_command(command)
 
 
 
