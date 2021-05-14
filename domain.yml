@@ -13,6 +13,7 @@ intents:
   - list_docker_images
   - open_docker_cli
   - container_index
+  - docker_aws_login
 
 entities:
   - containerization_app_command
@@ -21,6 +22,8 @@ entities:
   - containerization_app_prompt
   - container_idx
   - container_name
+  - auth_action
+  - cloud_service
 
 
 responses:
@@ -49,6 +52,9 @@ responses:
     - text: Ok. Thanks!
   utter_slots_values:
   - text: you request is to {containerization_app_command} {containerization_app_prompt} {container_name} for docker!
+  utter_auth_slots_values:
+  - text: "you request is to authenticate docker to aws with below config \n Aws Region: {aws_region} \n Aws Username: {username} \n Aws image_uri: {image_uri}"
+
 
 
 actions:
@@ -57,18 +63,26 @@ actions:
   - action_reset_slots
   - action_form_submit
   - validate_launch_cli_or_webpage_form
-
+  - action_ask_authenticate_with_aws_form_aws_region
+  - action_ask_authenticate_with_aws_form_username
+  - action_ask_authenticate_with_aws_form_image_uri
+  - action_authenticate_with_aws_form_submit
 
 slots:
   containerization_app_command:
     type: text
-#    auto_fill: False
   containerization_app_prompt:
     type: text
-#    auto_fill: False
   container_name:
     type: text
-#    auto_fill: False
+  aws_region:
+    type: text
+  username:
+    type: text
+  image_uri:
+    type: text
+
+#     auto_fill: False
 
 
 forms:
@@ -83,6 +97,16 @@ forms:
         container_name:
           - type: from_entity
             entity: container_name
+  
+  authenticate_with_aws_form:
+    required_slots:
+        aws_region:
+          - type: from_text
+        username:
+          - type: from_text
+        image_uri:
+          - type: from_text
+      
 
 
 session_config:

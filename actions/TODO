@@ -15,6 +15,6 @@
         - cli
         - webpage
 
-7) Add restart functionality 
+7) Add restart functionality  (won't do)
 8) add authenticate with aws
 9) pull images for ecr
