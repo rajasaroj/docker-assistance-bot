@@ -429,3 +429,20 @@ nlu:
     - [fetch](containerization_app_command) the [image](containerization_app_feature) from [aws](cloud_service)
     - [pull](containerization_app_command) [docker](containerization_app) [image](containerization_app_feature) from [aws](cloud_service)
     - [fetch](containerization_app_command) the [docker](containerization_app) [image](containerization_app_feature)
+
+
+- intent: display_container_log
+  examples: |
+    - [show](containerization_app_command) me [container](containerization_app_feature) [logs](logging)
+    - [display](containerization_app_command) [logs](logging) for [container](containerization_app_feature)
+    - [container](containerization_app_feature) [logs](logging)
+    - [display](containerization_app_command) [container](containerization_app_feature) [logs](logging)
+    - [show](containerization_app_command) the [logs](logging) of the [container](containerization_app_feature)
+    - [logs](containerization_app_command) for [container](containerization_app_feature)
+    - [display](containerization_app_command) [logs](logging)
+    - [logs](logging)
+    - please [show](containerization_app_command) me the [container](containerization_app_feature) [logs](logging)
+    - [watch](containerization_app_command) the [container](containerization_app_feature) [logs](logging)
+    - [see](containerization_app_command) the [container](containerization_app_feature) [logs](logging)
+    - [show](containerization_app_command) me [logs](logging)
+    - [container](containerization_app_feature) [logs](logging)

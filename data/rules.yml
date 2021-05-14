@@ -68,3 +68,20 @@ rules:
   - action: action_reset_slots
 
 
+- rule: Activate show container logs form
+  steps:
+  - intent: display_container_log
+  - action: show_container_logs_form
+  - active_loop: show_container_logs_form
+
+- rule: deactivate show container logs form
+  condition:
+  - active_loop: show_container_logs_form
+  steps:
+  - action: show_container_logs_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_show_container_logs_submit
+  - action: action_reset_slots
+

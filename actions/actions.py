@@ -89,6 +89,27 @@ class ActionShowContainerStatus(Action):
         return []
 
 
+# TODO: Need to find a generic implementation, inorder to call it from multiple forms
+class ActionShowContainerStatusForLogs(Action):
+    
+    def name(self) -> Text:
+        return "action_ask_show_container_logs_form_container_name"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        response = DockerActionHandler().show_docker_container_status()
+        print(response)
+
+        response = "Please Choose the Container name\n\n" + response
+
+        dispatcher.utter_message(text=f"{response}")
+
+        return []
+
+
+
 class ActionAskAwsRegion(Action):
     
     def name(self) -> Text:
@@ -155,6 +176,23 @@ class ActionPullDockerImageFromSubmit(Action):
         print(tracker.slots)
         DockerActionHandler().pull_docker_image(tracker.get_slot("image_uri"))
         return []
+
+
+
+class ActionShowContainerLogsFormSubmit(Action):
+    
+    def name(self) -> Text:
+        return "action_show_container_logs_submit"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print(tracker.slots)
+        DockerActionHandler().show_container_logs(tracker.get_slot("container_name"))
+        return []
+
+
+
+
 
 class ActionResetSlots(Action):
 
