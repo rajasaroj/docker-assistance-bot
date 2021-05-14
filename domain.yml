@@ -14,6 +14,7 @@ intents:
   - open_docker_cli
   - container_index
   - docker_aws_login
+  - pull_docker_image
 
 entities:
   - containerization_app_command
@@ -54,6 +55,8 @@ responses:
   - text: you request is to {containerization_app_command} {containerization_app_prompt} {container_name} for docker!
   utter_auth_slots_values:
   - text: "you request is to authenticate docker to aws with below config \n Aws Region: {aws_region} \n Aws Username: {username} \n Aws image_uri: {image_uri}"
+  utter_ask_pull_docker_form_image_uri:
+  - text: "please provide docker image uri"
 
 
 
@@ -67,6 +70,8 @@ actions:
   - action_ask_authenticate_with_aws_form_username
   - action_ask_authenticate_with_aws_form_image_uri
   - action_authenticate_with_aws_form_submit
+  - action_pull_docker_image_submit
+
 
 slots:
   containerization_app_command:
@@ -80,6 +85,8 @@ slots:
   username:
     type: text
   image_uri:
+    type: text
+  image_name:
     type: text
 
 #     auto_fill: False
@@ -107,7 +114,10 @@ forms:
         image_uri:
           - type: from_text
       
-
+  pull_docker_form:
+    required_slots:
+        image_uri:
+          - type: from_text
 
 session_config:
   session_expiration_time: 60

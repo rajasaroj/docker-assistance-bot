@@ -417,3 +417,15 @@ nlu:
     - [authenticate](auth_action)
     - [login](auth_action)
 
+
+- intent: pull_docker_image
+  examples: |
+    - [pull](containerization_app_command) [docker](containerization_app) [image](containerization_app_feature) from [aws](cloud_service)
+    - [pull](containerization_app_command) [docker](containerization_app) [image](containerization_app_feature)
+    - [download](containerization_app_command) [image](containerization_app_feature)
+    - [fetch](containerization_app_command) [image](containerization_app_feature) from [aws](cloud_service)
+    - [docker](containerization_app) [image](containerization_app_feature) [pull](containerization_app_command)
+    - [pull](containerization_app_command) [image](containerization_app_feature)
+    - [fetch](containerization_app_command) the [image](containerization_app_feature) from [aws](cloud_service)
+    - [pull](containerization_app_command) [docker](containerization_app) [image](containerization_app_feature) from [aws](cloud_service)
+    - [fetch](containerization_app_command) the [docker](containerization_app) [image](containerization_app_feature)
