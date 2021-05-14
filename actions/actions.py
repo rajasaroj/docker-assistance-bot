@@ -89,6 +89,62 @@ class ActionShowContainerStatus(Action):
         return []
 
 
+class ActionAskAwsRegion(Action):
+    
+    def name(self) -> Text:
+        return "action_ask_authenticate_with_aws_form_aws_region"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+
+        response = "Please enter the AWS region"
+        dispatcher.utter_message(text=f"{response}")
+        return []
+
+
+class ActionAskAwsUserName(Action):
+    
+    def name(self) -> Text:
+        return "action_ask_authenticate_with_aws_form_username"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+
+        response = "Please enter the username"
+        dispatcher.utter_message(text=f"{response}")
+        return []
+
+
+class ActionAskAwsImageUri(Action):
+    
+    def name(self) -> Text:
+        return "action_ask_authenticate_with_aws_form_image_uri"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        response = "Please enter the aws image_uri"
+        dispatcher.utter_message(text=f"{response}")
+        return []
+
+
+class ActionAuthenticationFormSubmit(Action):
+    
+    def name(self) -> Text:
+        return "action_authenticate_with_aws_form_submit"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        print(tracker.slots)
+        DockerActionHandler().authenticate_with_aws(tracker.get_slot("aws_region"), tracker.get_slot("username"), tracker.get_slot("image_uri"))
+        return []
+
+
 class ActionResetSlots(Action):
 
     def name(self) -> Text:
@@ -107,7 +163,6 @@ class ActionFormSubmit(Action):
 
         print(tracker.slots)
         DockerActionHandler().start_cli_or_web_container(tracker.get_slot("containerization_app_prompt"), tracker.get_slot("container_name"))
-
         return []
                 
 
@@ -133,7 +188,12 @@ class ValidateLaunchCliAndWebPageForm(FormValidationAction):
 
     def validate_containerization_app_prompt(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict):
         print(slot_value)
-        slot_value = slot_value.strip()
+
+        if type(slot_value) == list:
+            slot_value = slot_value[0].strip()
+        else:
+            slot_value = slot_value.strip()
+
         print(slot_value)
         if slot_value.isalpha():
             print("-" + slot_value)
@@ -143,11 +203,14 @@ class ValidateLaunchCliAndWebPageForm(FormValidationAction):
             return {"containerization_app_prompt": None}
 
     def validate_container_name(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict):
-        print(slot_value)
+        print("before strip" + slot_value)
         slot_value = slot_value.strip()
-        if slot_value.isalpha():
+        print("after strip" + slot_value)
+
+        if slot_value != "":
             print("-" + slot_value)
             return {"container_name": slot_value}
         else:
             print(slot_value)
             return {"container_name": None}
+        

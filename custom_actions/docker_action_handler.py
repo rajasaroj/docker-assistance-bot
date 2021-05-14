@@ -1,6 +1,8 @@
 
 from custom_actions.docker_garage import DockerHelper
 import difflib
+from custom_actions.docker_aws_authenticate_handler import DockerAwsAuthenticationHandler
+
 
 class DockerActionHandler:
 
@@ -107,7 +109,8 @@ class DockerActionHandler:
             self.dockerHelper.launch_container_webpage(self.__get_container_using_id(container_id))
 
 
-    
+    def authenticate_with_aws(self, region: str, username: str, ecr_uri: str):
+        DockerAwsAuthenticationHandler.aws_login(region, username, ecr_uri)
 
 
 

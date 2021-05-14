@@ -31,6 +31,28 @@ rules:
   - action: action_reset_slots
 
 
+- rule: Activate cli or Authetication form
+  steps:
+  - intent: docker_aws_login
+  - action: authenticate_with_aws_form
+  - active_loop: authenticate_with_aws_form
+
+- rule: deactivate cli or Authetication form
+  condition:
+  - active_loop: authenticate_with_aws_form
+  steps:
+  - action: authenticate_with_aws_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_auth_slots_values
+  - action: action_authenticate_with_aws_form_submit
+  - action: action_reset_slots
+
+
+
+
+
 # - rule: Activate form
 #   steps:
 #   - intent: request_restaurant

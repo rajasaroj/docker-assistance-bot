@@ -401,4 +401,19 @@ nlu:
     - web
     - browser
 
-   
+
+- intent: docker_aws_login
+  examples: |
+    - [login](auth_action) to [aws](cloud_service)
+    - [authenticate](auth_action) docker to [aws](cloud_service)
+    - please [connect](auth_action) to [aws](cloud_service)
+    - [connect](auth_action) to [aws](cloud_service)
+    - [login](auth_action) [aws](cloud_service)
+    - [authenticate](auth_action) [aws](cloud_service)
+    - [connect](auth_action) [aws](cloud_service)
+    - [aws](cloud_service) [login](auth_action)
+    - [aws](cloud_service) [authenticate](auth_action)
+    - let's [connect](auth_action) with [aws](cloud_service)
+    - [authenticate](auth_action)
+    - [login](auth_action)
+
