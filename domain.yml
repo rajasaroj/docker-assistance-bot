@@ -15,6 +15,7 @@ intents:
   - container_index
   - docker_aws_login
   - pull_docker_image
+  - display_container_log
 
 entities:
   - containerization_app_command
@@ -25,6 +26,7 @@ entities:
   - container_name
   - auth_action
   - cloud_service
+  - logging
 
 
 responses:
@@ -71,6 +73,8 @@ actions:
   - action_ask_authenticate_with_aws_form_image_uri
   - action_authenticate_with_aws_form_submit
   - action_pull_docker_image_submit
+  - action_ask_show_container_logs_form_container_name
+  - action_show_container_logs_submit
 
 
 slots:
@@ -117,6 +121,11 @@ forms:
   pull_docker_form:
     required_slots:
         image_uri:
+          - type: from_text
+
+  show_container_logs_form:
+    required_slots:
+        container_name:
           - type: from_text
 
 session_config:

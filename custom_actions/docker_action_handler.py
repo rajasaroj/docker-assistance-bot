@@ -116,6 +116,9 @@ class DockerActionHandler:
     def pull_docker_image(self, image_uri):
         self.dockerHelper.pull_docker_images(image_uri)
 
+    def show_container_logs(self, container_name):
+        container_id = self.__get_containerid_using_name(container_name)
+        self.dockerHelper.show_docker_container_logs(container_id)
 
 
 

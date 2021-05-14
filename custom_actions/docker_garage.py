@@ -40,7 +40,9 @@ class DockerHelper:
         print(command)
         CommandLineInterfaceHandler.launch_terminal_with_command(command)
 
-
+    def show_docker_container_logs(self, container_id):
+        command = f"docker logs -f {container_id}"
+        CommandLineInterfaceHandler.launch_terminal_with_command(command)
 
 
 
