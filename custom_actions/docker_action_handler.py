@@ -113,7 +113,8 @@ class DockerActionHandler:
         DockerAwsAuthenticationHandler.aws_login(region, username, ecr_uri)
 
 
-
+    def pull_docker_image(self, image_uri):
+        self.dockerHelper.pull_docker_images(image_uri)
 
 
 

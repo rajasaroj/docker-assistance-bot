@@ -145,6 +145,17 @@ class ActionAuthenticationFormSubmit(Action):
         return []
 
 
+class ActionPullDockerImageFromSubmit(Action):
+    
+    def name(self) -> Text:
+        return "action_pull_docker_image_submit"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print(tracker.slots)
+        DockerActionHandler().pull_docker_image(tracker.get_slot("image_uri"))
+        return []
+
 class ActionResetSlots(Action):
 
     def name(self) -> Text:
