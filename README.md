@@ -1,6 +1,25 @@
-# docker-assistance-bot
+# Docker-assistance-bot
 
-Note: UserWarning is supressed in this file
-/Users/rsaroj/code_space/rasa-init-demo/venv/lib/python3.8/site-packages/rasa/shared/utils/io.py:97: 
-to enable it remove comment from line number 97
-    #warnings.warn(message, category=category, **kwargs)
+
+
+# Install Step:
+1) pip install virtualenv
+2) source venv/bin/activate
+3) pip install rasa==2.6.0 (you can also follow installation guide for rasa: https://rasa.com/docs/rasa/installation/)
+3) rasa shell (to start the bot)
+4) rasa run actions (to start action api in backend REQUIRED!)
+
+# Command To Train Rasa:
+=> rasa train
+
+
+# Feature Supported by docker assitance bot
+=> List images/containers
+=> open cli container
+=> launch webpages of container
+=> Docker aws authentication (Prequesite: need awscli installed and .creditials file should have sceret keys)
+=> Pull images from repos
+=> Shows logs of container
+
+
+

@@ -355,7 +355,22 @@ nlu:
     - we need to [start](containerization_app_command) the [terminal](containerization_app_prompt:cli) on the [serene shockly](container_name) [container](containerization_app_feature)
     - [start](containerization_app_command) the [ic cluster 11](container_name) [container](containerization_app_feature) in [browser](containerization_app_prompt:web)
     - [start](containerization_app_command) the [cluster eleven](container_name) [container](containerization_app_feature) in [browser](containerization_app_prompt:web)
-
+    - [open](containerization_app_command) [terminal](containerization_app_prompt:cli) on [control-center](container_name) [container](containerization_app_feature)
+    - [start](containerization_app_command) the [control center](container_name) [container](containerization_app_feature) [cli](containerization_app_prompt:cli)   
+    - [launch](containerization_app_command) the [control-center](container_name) [container](containerization_app_feature) in [google](containerization_app_prompt:web)
+    - please [launch](containerization_app_command) the web page of the [control-center](container_name) [container](containerization_app_feature) in [google chrome](containerization_app_prompt:web)
+    - [start](containerization_app_command) the [web page](containerization_app_prompt:web) for the [control-center](container_name) [container](containerization_app_feature)
+    - [open](containerization_app_command) [control-center](container_name) [container](containerization_app_feature) in [chrome](containerization_app_prompt:web)
+    - [launch](containerization_app_command) the [control-center](container_name) [container](containerization_app_feature) in [browser](containerization_app_prompt:web)
+    - [open](containerization_app_command) [web page](containerization_app_prompt:web) of the [control-center](container_name) [container](containerization_app_feature)
+    - [open](containerization_app_command) the [control-center](container_name) [container](containerization_app_feature) in [chrome browser](containerization_app_prompt:web) 
+    - [start](containerization_app_command) [control-center](container_name) [container](containerization_app_feature) in [browser](containerization_app_prompt:web)
+    - we need to [start](containerization_app_command) the [terminal](containerization_app_prompt:cli) on the [control center](container_name) [container](containerization_app_feature)
+    - help me to [open](containerization_app_command) [command line interface](containerization_app_prompt:cli) on [control-center](container_name) [container](containerization_app_feature)
+    - please [start](containerization_app_command) [command line interface](containerization_app_prompt:cli) for the [control-center](container_name) [container](containerization_app_feature) in [docker](containerization_app)
+    - i want to [open](containerization_app_command) a [cli](containerization_app_prompt:cli) for [control-center](container_name) [container](containerization_app_feature)
+    - please [start](containerization_app_command) [command line interface](containerization_app_prompt:cli) for the [control-center](container_name) [container](containerization_app_feature) in [docker](containerization_app)
+    - [open](containerization_app_command) [docker](containerization_app) [cli](containerization_app_prompt:cli) for [control-center](container_name) [container](containerization_app_feature)
     
 
 - intent: container_index
