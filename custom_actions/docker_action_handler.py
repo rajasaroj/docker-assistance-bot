@@ -120,6 +120,4 @@ class DockerActionHandler:
         container_id = self.__get_containerid_using_name(container_name)
         self.dockerHelper.show_docker_container_logs(container_id)
 
-
-
 #DockerActionHandler().start_cli_or_web_container('cli', 1)

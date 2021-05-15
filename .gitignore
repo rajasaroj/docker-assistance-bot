@@ -132,3 +132,4 @@ dmypy.json
 models
 test_model
 .DS_Store
+rasa_interpreter/mic_input_ai.py

@@ -18,4 +18,4 @@
 7) Add restart functionality  (won't do)
 8) add authenticate with aws (done)
 9) pull images for ecr (done)
-10) container logs display
+10) container logs display (done)
